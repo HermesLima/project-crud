@@ -6,92 +6,19 @@ const cliente = require("./database");
 
 // Módulos criados pelo usuário
 // Não precisa colocar o nome index.js, pois ele tem o nome de index e é único na pasta
-//const db = require('./database')
 const routes = require("./routes");
 
 // inicializa o express
 const app = express();
 
-///////////////////////////////////////////////////////////
-////////// criar uma collection ///////////////////////////
-///////////////////////////////////////////////////////////
-/*
-const databasename = "escola";
+// Criar collection
+//const y = require("./y")
+//y.runner()
 
-// conexão com o BD
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await cliente
-      .connect()
-      .then((client) => {
-        const connect = client.db(databasename);
+// Inserir dados em collection
+//const x = require("./x")
+//x.run()
 
-        // New Collection
-        const collection = connect.createCollection("turnos");
-
-        console.log("collection created", collection);
-        console.log(collection);
-      })
-      .catch((err) => {
-        // Handling the error
-        console.error(err.Message);
-      });
-
-    // Send a ping to confirm a successful connection
-    await cliente.db("admin").command({ ping: 1 });
-    console.log(
-      "Pinged your deployment. You successfully connected to MongoDB!"
-    );
-
-    // New Collection
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await cliente.close();
-  }
-}
-run().catch(console.dir);
-*/
-////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////////////
-////////////////// incluir um objeto a uma collection existente ////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////
-
-const databasename = "escola";
-
-// conexão com o BD
-async function run() {
-  try {
-    await cliente
-      .connect()
-      .then((client) => {
-        const connect = client.db(databasename);
-
-        // insert object in the Collection
-        const collection = connect
-          .collection("alunos")
-          .insertOne({ name: "bigodao", age: 51 });
-
-        console.log("collection created", collection);
-        console.log(collection);
-      })
-      .catch((err) => {
-        // Handling the error
-        console.error(err.Message);
-      });
-
-    // Send a ping to confirm a successful connection
-    await cliente.db("admin").command({ ping: 1 });
-   
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await cliente.close();
-  }
-}
-run().catch(console.dir);
-
-////////////////////////////////////////////////////////////
 
 // definindo o template engine. Por padrão, a pasta views sempre será procurada na raiz do projeto
 app.set("view engine", "ejs");
