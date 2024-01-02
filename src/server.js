@@ -2,8 +2,6 @@
 const express = require("express");
 const path = require("path");
 
-const cliente = require("./database");
-
 // Módulos criados pelo usuário
 // Não precisa colocar o nome index.js, pois ele tem o nome de index e é único na pasta
 const routes = require("./routes");
@@ -14,11 +12,6 @@ const app = express();
 // Criar collection
 //const y = require("./y")
 //y.runner()
-
-// Inserir dados em collection
-//const x = require("./x")
-//x.run()
-
 
 // definindo o template engine. Por padrão, a pasta views sempre será procurada na raiz do projeto
 app.set("view engine", "ejs");

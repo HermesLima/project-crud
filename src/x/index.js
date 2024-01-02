@@ -2,10 +2,10 @@
 
 
 // conexão com o BD
-async function run() {
+async function run(model) {
 const cliente = require("../database");
 const databasename = "escola";
-const model = {nome: "mussum", idade: 9}
+// const model = {nome: nome, idade: idade, email: email, senha: senha}
 const colecao = "alunos"
 
   try {
