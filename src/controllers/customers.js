@@ -1,5 +1,3 @@
-/*
-
 const CustomersModel = require('../models/customers')
 const { crypto } = require('../utils/password')
 
@@ -12,56 +10,7 @@ function index(req, res) {
   })
 }
 
-*/
-
-function index(req, res) {
-    res.render("register", {
-      title: "Cadastro de clientes",
-    })
-}
-
-function add(req, res) {
-  const CustomersModel = require('../x')
-  const { crypto } = require('../utils/password')
-  const {
-    name,
-    age,
-    email,
-    password,
-  } = req.body
-
-  const passwordCrypto = crypto(password)
-
-  const objModel = {
-    name, // não precisa name: name, pois têm o mesmo nome
-    age, // não precisa age: age, pois têm o mesmo nome
-    email, // não precisa email: email, pois têm o mesmo nome
-    password: passwordCrypto //  precisa password: passwordCrypto, pois têm nomes diferentes
-  }
-
-  CustomersModel.run(objModel)
-  res.send('cadastro realizado')
- }
-
-
-function listUsers(req, res) {
-    const z = require('../z')
-
-    
-    /* GET home page. */
-      try {
-//        const users = z.runZ();
-        const users = [{name: "a", age: 10, email: "aaaa"},{name: "b", age: 100, email: "bbbb"}, {name: "c", age: 90, email: "cccc"}]
-        res.render('listUsers', { title: 'Lista de Clientes', "users": users});
-      } catch (err) {
-        next(err);
-      }
-  
-}
-
-
-/*
-  async function add(req, res) {
+async function add(req, res) {
   const {
     name,
     age,
@@ -85,7 +34,6 @@ function listUsers(req, res) {
     message: 'Cadastro realizado com sucesso!'
   })
 }
-
 
 async function list(req, res) {
   const users = await CustomersModel.find()
@@ -148,11 +96,4 @@ module.exports = {
   formEdit,
   edit,
   remove,
-}
-
-*/
-module.exports = {
-  add,
-  index,
-  listUsers
 }
