@@ -82,7 +82,7 @@ async function remove(req, res) {
 
   const remove = await StudentModel.deleteOne({ _id: id })
 
-  if (remove.ok) {
+  if (remove) {
     res.redirect('/listStudent')
   }
 }

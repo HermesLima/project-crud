@@ -6,7 +6,8 @@ function connect() {
   // Replace with your MongoDB connection URL
   const url = 'mongodb+srv://hermesoficial:fefenina@bdtest.ksgevmw.mongodb.net'
   
-  mongoose.connect(url, { useNewUrlParser: true });
+//  mongoose.connect(url, { useNewUrlParser: true })
+  mongoose.connect(url)
   const db = mongoose.connection;
 
   db.once('open', () => {
