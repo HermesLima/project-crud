@@ -10,8 +10,11 @@ const app = express()
 // conexão com o banco de dados
 db.connect()
 
-// definindo o template engine
+// definindo o template engine. Por padrão, a pasta views sempre será procurada na raiz do projeto
 app.set('view engine', 'ejs')
+
+// a pasta padrão será procurada. Como o server.js está dentro da pasta src ele vai buscar a partir daqui
+// __dirname = C:\Users\Maria\workspace\nodejs\projeto-crud\src
 app.set('views', path.join(__dirname, 'views'))
 
 // definindo os arquivos públicos

@@ -10,9 +10,9 @@
   <ul>
     <% users.forEach((user) => { %>
       <li>
-        <%= user.name %> - <%= user.email %> - Idade: <%= user.age %> - <%= user._id %> 
-        <a href="/edit?id=<%= user._id %>">[editar]</a> - 
-        <a href="/remove/<%= user._id %>">[remover]</a>
+        <%= user.name %> - <%= user.serie %> - Média: <%= user.media %> - 
+        <a href="/editStudent?id=<%= user._id %>">[editar]</a> - 
+        <a href="/removeStudent/<%= user._id %>">[remover]</a>
       </li>
     <% }) %>
   </ul>

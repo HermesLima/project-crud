@@ -26,9 +26,10 @@ async function add(req, res) {
     email,
     password: passwordCrypto,
   })
-
+ 
   register.save()
 
+  // ao invés de mandarmos uma msg pelo send, vamos renderizar novamente passando nova mensagem
   res.render('register', {
     title: defaultTitle,
     message: 'Cadastro realizado com sucesso!'
@@ -38,6 +39,7 @@ async function add(req, res) {
 async function list(req, res) {
   const users = await CustomersModel.find()
 
+  // ao invés de mandarmos uma msg pelo send, vamos renderizar novamente passando nova mensagem
   res.render('list', {
     title: listTitle,
     users,
@@ -45,10 +47,13 @@ async function list(req, res) {
 }
 
 async function formEdit(req, res) {
-  const { id } = req.params
+
+//  const { id } = req.params
+  const { id } = req.query
 
   const user = await CustomersModel.findById(id)
 
+  // ao invés de mandarmos uma msg pelo send, vamos renderizar novamente passando nova mensagem
   res.render('edit', {
     title: 'Editar Usuário',
     user,
@@ -72,6 +77,7 @@ async function edit(req, res) {
 
   user.save()
 
+  // ao invés de mandarmos uma msg pelo send, vamos renderizar novamente passando nova mensagem
   res.render('edit', {
     title: 'Editar Usuário',
     user,
